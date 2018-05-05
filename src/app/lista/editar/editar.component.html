@@ -1,0 +1,238 @@
+<div id="main" class="container-fluid">
+  
+  <h3 class="page-header">Editar Paciente</h3>
+    
+  <form class="form" [formGroup]="formulario">
+
+    <div class="dados-pessoais" formGroupName="formPaciente">
+      <h4>Dados Pessoais</h4>
+      <div class="row">
+
+        <div class="form-group col-md-8">
+          <label for="nome">Nome:</label>
+          <input type="text" class="form-control" id="nome" formControlName="nome">
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="cpf">CPF:</label>
+          <input type="text" class="form-control" id="cpf" formControlName="cpf">
+        </div>
+     
+      </div>
+      
+      <div class="row">
+
+        <div class="form-group col-md-3">
+          <label for="sexo">Sexo:</label>
+          <select name="sexo" id="sexo" class="form-control" formControlName="homem">
+            <option value="null">--Selecione--</option>
+            <option value="Masculino">Masculino</option>
+            <option value="Feminino" >Feminino</option>
+          </select>
+        </div>
+
+        <div class="form-group col-md-3">
+          <label for="dataNasc">Data de Nascimento:</label>
+          <input type="date" class="form-control" id="dataNasc" formControlName="dataNasc">
+        </div>
+
+        <div class="form-group col-md-3">
+          <label for="emEspera">Em espera:</label>
+          <select name="emEspera" id="emEspera" class="form-control" formControlName="emEspera">
+            <option value="null">--Selecione--</option>
+            <option value="Sim">Sim</option>
+            <option value="Não">Não</option>
+          </select>
+        </div>
+
+        <div class="form-group col-md-8">
+          <label for="nomeMae">Nome da Mãe:</label>
+          <input type="text" class="form-control" id="nomeMae" formControlName="nomeMae">
+        </div>
+
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="dados-residenciais" formGroupName="formEndereco">
+      <h4>Dados Residenciais</h4>
+      <div class="row">
+
+        <div class="form-group col-md-8">
+          <label for="cidade">Cidade:</label>
+          <input type="text" class="form-control" id="cidade" formControlName="cidade">
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="estado">UF:</label>
+          <input type="text" class="form-control" id="estado" formControlName="estado">
+        </div>
+
+      </div>
+      
+      <div class="row">
+
+        <div class="form-group col-md-6">
+          <label for="rua">Rua:</label>
+          <input type="text" class="form-control" id="rua" formControlName="rua">
+        </div>
+
+        <div class="form-group col-md-3">
+          <label for="numero-input">Numero:</label>
+          <input type="text" class="form-control" id="numero-input" formControlName="numero">
+        </div>
+
+        <div class="form-group col-md-3">
+          <label for="cep">CEP:</label>
+          <input type="text" class="form-control" id="cep" formControlName="cep">
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="bairro">Bairro:</label>
+          <input type="text" class="form-control" id="bairro" formControlName="bairro">
+        </div>
+   
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="unidade-atendimento" formGroupName="formNomeUnidadeAtend">
+      <h4>Unidade de Atendimento</h4>
+      <div class="row">
+
+        <div class="form-group col-md-8">
+          <label for="nomeInst">Nome da Inst.:</label>
+          <input type="text" class="form-control" id="nomeInst" formControlName="nome">
+        </div>
+
+      </div>
+    </div>
+
+    <div class="dados-residenciais" formGroupName="formUnidadeAtend">
+      <div class="row">
+
+        <div class="form-group col-md-8">
+          <label for="cidadeInst">Cidade:</label>
+          <input type="text" class="form-control" id="cidadeInst" formControlName="cidade">
+        </div>
+    
+        <div class="form-group col-md-4">
+          <label for="estadoInst">UF:</label>
+          <input type="text" class="form-control" id="estadoInst" formControlName="estado">
+        </div>
+
+      </div>
+        
+      <div class="row">
+
+        <div class="form-group col-md-6">
+          <label for="ruaInst">Rua:</label>
+          <input type="text" class="form-control" id="ruaInst" formControlName="rua">
+        </div>
+    
+        <div class="form-group col-md-3">
+          <label for="numeroInst">Numero:</label>
+          <input type="text" class="form-control" id="numeroInst" formControlName="numero">
+        </div>
+
+        <div class="form-group col-md-3">
+          <label for="cepInst">CEP:</label>
+          <input type="text" class="form-control" id="cepInst" formControlName="cep">
+        </div>
+    
+        <div class="form-group col-md-6">
+          <label for="bairroInst">Bairro:</label>
+          <input type="text" class="form-control" id="bairroInst" formControlName="bairro">
+        </div>
+
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="quadro-clinico" formGroupName="formQuadroClinico">
+      <h4>Quadro Clinico</h4>
+      <div class="row">
+
+        <div class="form-group col-md-4">
+          <label for="dataAtend">Data de Atendimento:</label>
+          <input id="dataAtend" class="form-control" type="date" formControlName="dataAtend">
+        </div>
+
+        <div class="form-group col-md-4">
+            <label for="sintomas">Sintomas:</label>
+            <input type="text" class="form-control" id="sintomas" formControlName="sintomas">
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="doenca">Doença:</label>
+          <input type="text" class="form-control" id="doenca" formControlName="doenca">
+        </div>
+
+      </div>
+      
+      <div class="row">
+
+        <div class="form-group col-md-3">
+          <label for="hipertenso">Hipertenso:</label>
+          <select name="hipertenso" class="form-control" id="hipertenso" formControlName="hipertenso">
+            <option value="null">--Selecione--</option>
+            <option value="Sim">Sim</option>
+            <option value="Não">Não</option>
+          </select>
+        </div>
+
+        <div class="form-group col-md-3">
+          <label for="alergico">Alergico:</label>
+          <select name="alergico" class="form-control" id="alergico" formControlName="alergico">
+            <option value="null">--Selecione--</option>
+            <option value="Sim">Sim</option>
+            <option value="Não">Não</option>
+          </select>
+        </div>
+
+        <div class="form-group col-md-3">
+          <label for="diabetico">Diabetico:</label>
+          <select name="diabetico" class="form-control" id="diabetico" formControlName="diabetico">
+            <option value="null">--Selecione--</option>
+            <option value="Sim">Sim</option>
+            <option value="Não">Não</option>
+          </select>
+        </div>
+
+        <div class="form-group col-md-3">
+          <label for="observacoes">Observações:</label>
+          <select name="observacoes" class="form-control" id="observacoes" formControlName="observacoes">
+            <option value="null">--Selecione--</option>
+            <option value="Sim">Sim</option>
+            <option value="Não">Não</option>
+          </select>
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="form-group col-md-12">
+            <label for="prescricao">Prescrição:</label>
+            <input type="textbox" class="form-control" id="prescricao" formControlName="prescricao">
+        </div>
+
+      </div>
+    </div>
+    
+    <hr /> 
+    
+    <div class="row">
+
+      <div class="col-md-12">
+        <button (click)="recebeFichaAtualizada()" type="submit" class="btn btn-primary">Salvar</button>
+        <button (click)="cancelaEdicao()" class="btn btn-default">Cancelar</button>
+      </div>
+
+    </div>
+
+  </form>
+</div>

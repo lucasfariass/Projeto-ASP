@@ -1,0 +1,25 @@
+<div id="main" class="container-fluid">
+  <h3 class="page-header">{{nomeUnidade}}</h3>
+  
+  <div *ngFor="let ficha of unidadeFichas" class="row">
+    <div class="col-md-6">
+      <p><strong>Nome:</strong></p>
+      <p>{{ficha.paciente.nome}}</p>
+    </div>
+
+    <div class="col-md-3">
+      <p><strong>CPF:</strong></p>
+      <p>{{ficha.paciente.cpf}}</p>
+    </div>
+  
+    <div class="col-md-3">
+      <p><strong>Data de Atendimento:</strong></p>
+      <p>{{ficha.dataAtend}}</p>
+    </div>
+  
+  </div>
+  <hr />
+  <button (click)="fechaUnidade()" class="btn btn-primary">Fechar</button>
+</div>
+
+<!-- {{localidade.nome}} -->

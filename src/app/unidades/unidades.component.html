@@ -1,0 +1,27 @@
+<div id="main" class="container-fluid">
+  
+  <h3>Unidades de Atendimento</h3>
+      
+  <div class="col">
+    <table id="unidade-atend" class="table table-striped">
+      <thead>
+        <tr class="row">
+          <th>#</th>
+          <th class="col-md-4">Nome</th>
+          <th class="col-md-4">Cidade</th>
+          <th class="col-md-4">Pacientes</th>
+        </tr>
+      </thead>
+      <tbody> 
+        <tr *ngFor="let unidade of unidades" class="row">
+          <td></td>
+          <td class="col-md-4">{{unidade.nome}}</td>
+          <td class="col-md-4">{{unidade.endereco.cidade}}, {{unidade.endereco.estado}}</td>
+          <td class="col-md-4">
+            <button (click)="visualizaUnidade(unidade.nome)" class="btn btn-default" type="button">Visualizar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

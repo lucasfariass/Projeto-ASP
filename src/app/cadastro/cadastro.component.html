@@ -1,0 +1,20 @@
+<div id="main" class="container-fluid">
+  
+  <h3 class="page-header">Cadastrar Paciente</h3>
+
+  <app-dados-pessoais></app-dados-pessoais>
+  <app-endereco></app-endereco>
+  <app-unidade></app-unidade>
+  <app-quadro-clinico></app-quadro-clinico>
+  
+  
+  <div class="row">
+
+    <div class="col-md-12">
+      <button (click)="recebeFicha()" type="submit" class="btn btn-primary">Salvar</button>
+      <button (click)="cancelaFicha()" class="btn btn-default">Cancelar</button>
+    </div>
+
+  </div>
+
+</div>

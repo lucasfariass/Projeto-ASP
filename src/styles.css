@@ -1,0 +1,25 @@
+
+html{
+    min-height: 100%;
+    position: relative;
+}
+
+body{
+    padding-bottom: 150px;
+    width: 100%;
+}
+
+.btn-primary {
+    background-color: #e74246;
+    border-color: #d33d3f;
+}
+
+.btn-primary:hover{
+    background-color: #bd3d3f;
+    border-color: #b13a3c;
+}
+
+.btn-primary:active {
+    background-color: #bd3d3f;
+    border-color: #b13a3c;
+}

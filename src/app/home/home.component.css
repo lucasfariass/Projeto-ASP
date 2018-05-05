@@ -1,0 +1,27 @@
+.container{
+    width: 100%;
+    padding-left: 0;
+}
+
+.sub-header{
+    width: 100%;
+    overflow: hidden;
+    margin-top: -20px;  
+}
+
+.image-header{
+    width: 100%;
+}
+
+.botoes{
+    margin-top: 50px;
+}
+
+.col{
+    width: 11%;
+    min-width: 90px;
+}
+
+.col:hover{
+    cursor: pointer;
+}

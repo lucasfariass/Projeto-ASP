@@ -1,0 +1,75 @@
+<form class="form" [formGroup]="quadroClinico">
+  <div class="quadro-clinco" formGroupName="formQuadroClinico">
+    <h4>Quadro Clinico</h4>
+    <div class="row">
+
+      <div class="form-group col-md-4">
+        <label for="dataAtend">Data de Atendimento:</label>
+        <input id="dataAtend" class="form-control" type="date" formControlName="dataAtend">
+      </div>
+
+      <div class="form-group col-md-4">
+          <label for="sintomas">Sintomas:</label>
+          <input type="text" class="form-control" id="sintomas" placeholder="Digite os sintomas. Ex: Febre, Cefaleia" formControlName="sintomas">
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="doenca">Diagnóstico:</label>
+        <input type="text" class="form-control" id="doenca" placeholder="Digite o diagnóstico" formControlName="doenca">
+      </div>
+
+    </div>
+    
+    <div class="row">
+
+      <div class="form-group col-md-3">
+        <label for="hipertenso">Hipertenso:</label>
+        <select name="hipertenso" class="form-control" id="hipertenso" formControlName="hipertenso">
+          <option value="null">--Selecione--</option>
+          <option value="Sim">Sim</option>
+          <option value="Não">Não</option>
+        </select>
+      </div>
+
+      <div class="form-group col-md-3">
+        <label for="alergico">Alergico:</label>
+        <select name="alergico" class="form-control" id="alergico" formControlName="alergico">
+          <option value="null">--Selecione--</option>
+          <option value="Sim">Sim</option>
+          <option value="Não">Não</option>
+        </select>
+      </div>
+
+      <div class="form-group col-md-3">
+        <label for="diabetico">Diabetico:</label>
+        <select name="diabetico" class="form-control" id="diabetico" formControlName="diabetico">
+          <option value="null">--Selecione--</option>
+          <option value="Sim">Sim</option>
+          <option value="Não">Não</option>
+        </select>
+      </div>
+
+      <div class="form-group col-md-3">
+        <label for="observacoes">Observações:</label>
+        <select name="observacoes" class="form-control" id="observacoes" formControlName="observacoes">
+          <option value="null">--Selecione--</option>
+          <option value="Sim">Sim</option>
+          <option value="Não">Não</option>
+        </select>
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="form-group col-md-12">
+          <label for="prescricao">Prescrição:</label>
+          <input type="textbox" class="form-control" id="prescricao" placeholder="Prescrição Médica" formControlName="prescricao">
+      </div>
+
+    </div>
+  </div>
+  
+  <hr /> 
+
+</form>

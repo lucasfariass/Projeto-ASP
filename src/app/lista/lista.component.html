@@ -1,0 +1,48 @@
+<div id="main" class="container-fluid">
+  
+  <h3>Lista de Espera</h3>
+      
+  <div class="col">
+    <table id="lista-espera" class="table table-striped">
+      <thead>
+        <tr class="row">
+          <th>#</th>
+          <th class="col-md-4">Nome</th>
+          <th class="col-md-4">Unid. de Atendimento</th>
+          <th class="col-md-4"></th>
+        </tr>
+      </thead>
+      <tbody> 
+        <tr *ngFor="let ficha of listaEspera" class="row">
+          <td>{{ficha.posicao}}</td>
+          <td class="col-md-4">{{ficha.paciente.nome}}</td>
+          <td class="col-md-4">{{ficha.localidade.nome}}</td>
+          <td class="col-md-4">
+            <button (click)="editaFicha(ficha.posicao)" class="btn btn-default" type="button">Editar</button>
+            <button (click)="visualizaFicha(ficha.posicao)" class="btn btn-default" type="button">Visualizar</button>
+            <button (click)="recebePosicao(ficha.posicao)" class="btn btn-default" type="button" data-toggle="modal" data-target="#delete-modal">Deletar</button>
+            
+            <div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="modalLabel">Excluir Item</h4>
+                  </div>
+                  <div class="modal-body">
+                    Deseja realmente excluir este item?
+                  </div>
+                  <div class="modal-footer">
+                    <button (click)="removeFicha(posicao)" type="button" class="btn btn-primary" data-dismiss="modal">Sim</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
