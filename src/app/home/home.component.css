@@ -1,12 +1,14 @@
 .container{
     width: 100%;
-    padding-left: 0;
+    max-width: 100%;
+    padding: 0;
 }
 
 .sub-header{
     width: 100%;
     overflow: hidden;
-    margin-top: -20px;  
+    margin-top: -20px;
+    padding: 0;  
 }
 
 .image-header{
@@ -15,6 +17,11 @@
 
 .botoes{
     margin-top: 50px;
+}
+
+.row{
+    max-width: 100%;
+    margin: 0;
 }
 
 .col{

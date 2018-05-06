@@ -32,5 +32,7 @@
     cursor: pointer;
 }
 .logo{
-    margin-top: -15px;
+    width: 90px;
+    margin-top: -8px;
+    margin-left: 5px;
 }

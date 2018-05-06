@@ -15,7 +15,6 @@ import { UnidadesComponent } from './unidades/unidades.component';
 import { CadastroModule } from './cadastro/cadastro.module';
 import { VisualizarFichaComponent } from './lista/visualizar-ficha/visualizar-ficha.component';
 import { EditarComponent } from './lista/editar/editar.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VisualizarUnidadeComponent } from './unidades/visualizar-unidade/visualizar-unidade.component';
 
 
@@ -29,14 +28,12 @@ import { VisualizarUnidadeComponent } from './unidades/visualizar-unidade/visual
     VisualizarFichaComponent,
     EditarComponent,
     UnidadesComponent,
-    VisualizarUnidadeComponent
+    VisualizarUnidadeComponent,
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoute),
     CadastroModule,
-    FormsModule,
-    ReactiveFormsModule
   ],
   providers: [GeralService, AuthGuard],
   bootstrap: [AppComponent]

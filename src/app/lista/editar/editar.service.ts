@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Ficha } from '../models/ficha';
+import { Ficha } from '../../models/ficha';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { GeralService } from '../geral.service';
+import { GeralService } from '../../geral.service';
 
 @Injectable()
-export class CadastroService {
+export class EditarService {
 
   paciente: FormGroup;
   endereco: FormGroup;
@@ -15,19 +15,15 @@ export class CadastroService {
 
   constructor(private router: Router, private service: GeralService) { }
 
-  recebeFicha(){
+  recebeFichaAtualizada(){
     this.ficha = this.quadroClinico.value.formQuadroClinico;
     this.ficha.paciente = this.paciente.value.formPaciente;
     this.ficha.paciente.endereco = this.endereco.value.formEndereco;
     this.ficha.localidade = this.unidade.value.formNomeUnidadeAtend;
     this.ficha.localidade.endereco = this.unidade.value.formUnidadeAtend;
 
-    this.service.addFicha(this.ficha)
-    this.ficha = new Ficha();
-    this.paciente.reset();
-    this.endereco.reset();
-    this.quadroClinico.reset();
-    this.unidade.reset();
+    this.service.addFichaAtualizada(this.ficha);
     this.router.navigate(['/lista-espera']);
   }
+
 }

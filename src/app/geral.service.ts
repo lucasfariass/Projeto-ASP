@@ -33,7 +33,7 @@ export class GeralService {
   }
 
   addUnidade(){ // SEM REPETIÇÕES
-    if(this.fichas.length == 1 && this.unidades.length == 0){
+    if(this.fichas.length == 1 && this.unidades.length == 0 && this.fichas[0].localidade.nome){
       this.unidades.push(this.fichas[0].localidade);
     }
     else{

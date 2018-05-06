@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Ficha } from '../models/ficha';
 import { GeralService } from '../geral.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { CadastroService } from './cadastro.service';

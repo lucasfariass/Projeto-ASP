@@ -8,6 +8,7 @@ import { QuadroClinicoComponent } from './quadro-clinico/quadro-clinico.componen
 import { CadastroComponent } from './cadastro.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CadastroService } from './cadastro.service';
+import { EditarService } from '../lista/editar/editar.service';
 
 @NgModule({
   imports: [
@@ -29,6 +30,6 @@ import { CadastroService } from './cadastro.service';
     UnidadeComponent,
     QuadroClinicoComponent,
   ],
-  providers: [CadastroService],
+  providers: [CadastroService, EditarService],
 })
 export class CadastroModule { }
