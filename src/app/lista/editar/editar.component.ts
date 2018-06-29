@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Ficha } from '../../models/ficha';
-import { GeralService } from '../../geral.service';
+import { GeralService } from '../../services/geral/geral.service';
 import { EditarService } from './editar.service';
 
 

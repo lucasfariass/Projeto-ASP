@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Ficha } from './models/ficha';
-import { Localidade } from './models/localidade';
+import { Ficha } from './../../models/ficha';
+import { Localidade } from './../../models/localidade';
+import { DatabaseService } from '../database/database.service';
 
 @Injectable()
 export class GeralService {
@@ -10,9 +11,11 @@ export class GeralService {
   ficha: Ficha = new Ficha();
   unidadeNome: string;
 
-  constructor() { }
+  constructor(private fireDataBase : DatabaseService) { }
 
   addFicha(ficha){
+    this.fireDataBase.post('fichas', ficha);
+    //
     this.fichas.push(ficha);
     ficha.posicao = this.fichas.indexOf(ficha) + 1;
   }

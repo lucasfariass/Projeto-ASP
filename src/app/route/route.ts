@@ -1,12 +1,12 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { CadastroComponent } from './cadastro/cadastro.component';
-import { ListaComponent } from './lista/lista.component';
-import { AuthGuard } from './guards/auth.guard';
-import { UnidadesComponent } from './unidades/unidades.component';
-import { EditarComponent } from './lista/editar/editar.component';
-import { VisualizarFichaComponent } from './lista/visualizar-ficha/visualizar-ficha.component';
-import { VisualizarUnidadeComponent } from './unidades/visualizar-unidade/visualizar-unidade.component';
+import { HomeComponent } from './../home/home.component';
+import { CadastroComponent } from './../cadastro/cadastro.component';
+import { ListaComponent } from './../lista/lista.component';
+import { AuthGuard } from './../guards/auth.guard';
+import { UnidadesComponent } from './../unidades/unidades.component';
+import { EditarComponent } from './../lista/editar/editar.component';
+import { VisualizarFichaComponent } from './../lista/visualizar-ficha/visualizar-ficha.component';
+import { VisualizarUnidadeComponent } from './../unidades/visualizar-unidade/visualizar-unidade.component';
 
 export const appRoute : Routes = [
 

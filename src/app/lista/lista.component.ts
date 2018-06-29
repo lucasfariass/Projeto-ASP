@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Ficha } from '../models/ficha';
-import { GeralService } from '../geral.service';
+import { GeralService } from '../services/geral/geral.service';
 import { Router } from '@angular/router';
+import { DatabaseService } from '../services/database/database.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-lista',
@@ -12,9 +14,11 @@ export class ListaComponent implements OnInit {
 
   listaEspera: Array<Ficha> = new Array<Ficha>();
   posicao: number;
+  fichas: Observable<any[]>;
 
-  constructor(private router: Router, private service : GeralService) {
-      this.listaEspera = this.service.fichas;
+  constructor(private router: Router, private service : GeralService, private fireDataBase: DatabaseService) {
+      this.fichas = this.fireDataBase.fichas;
+      console.log(this.fichas)
   }
 
   ngOnInit() {
