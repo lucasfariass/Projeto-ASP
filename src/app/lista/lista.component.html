@@ -13,7 +13,7 @@
         </tr>
       </thead>
       <tbody> 
-        <tr *ngFor="let ficha of listaEspera" class="row">
+        <tr *ngFor="let ficha of fichas | async" class="row">
           <td>{{ficha.posicao}}</td>
           <td class="col-md-4">{{ficha.paciente.nome}}</td>
           <td class="col-md-4">{{ficha.localidade.nome}}</td>

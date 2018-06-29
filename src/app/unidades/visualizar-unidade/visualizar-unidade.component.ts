@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Ficha } from '../../models/ficha';
-import { GeralService } from '../../geral.service';
+import { GeralService } from '../../services/geral/geral.service';
 
 
 @Component({

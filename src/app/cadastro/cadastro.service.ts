@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Ficha } from '../models/ficha';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { GeralService } from '../geral.service';
+import { GeralService } from '../services/geral/geral.service';
 
 @Injectable()
 export class CadastroService {

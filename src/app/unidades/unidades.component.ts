@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Ficha } from '../models/ficha';
-import { GeralService } from '../geral.service';
+import { GeralService } from '../services/geral/geral.service';
 import { Router } from '@angular/router';
 import { Localidade } from '../models/localidade';
 
