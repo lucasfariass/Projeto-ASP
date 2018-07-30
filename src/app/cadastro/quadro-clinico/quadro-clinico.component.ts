@@ -27,6 +27,7 @@ export class QuadroClinicoComponent implements OnInit {
     if(this.ficha){
       this.quadroClinico = this.formBuilder.group({
         formQuadroClinico: this.formBuilder.group({
+          key:[this.ficha.key],
           dataAtend: [this.ficha.dataAtend],
           sintomas: [this.ficha.sintomas],
           doenca: [this.ficha.doenca],
@@ -42,6 +43,7 @@ export class QuadroClinicoComponent implements OnInit {
     else{
       this.quadroClinico = this.formBuilder.group({
         formQuadroClinico: this.formBuilder.group({
+          key:[null],
           dataAtend: [null],
           sintomas: [null],
           doenca: [null],

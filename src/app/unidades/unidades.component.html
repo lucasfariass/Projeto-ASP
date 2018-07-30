@@ -13,12 +13,12 @@
         </tr>
       </thead>
       <tbody> 
-        <tr *ngFor="let unidade of unidades" class="row">
+        <tr *ngFor="let unidade of unidadesArray" class="row">
           <td></td>
           <td class="col-md-4">{{unidade.nome}}</td>
           <td class="col-md-4">{{unidade.endereco.cidade}}, {{unidade.endereco.estado}}</td>
           <td class="col-md-4">
-            <button (click)="visualizaUnidade(unidade.nome)" class="btn btn-default" type="button">Visualizar</button>
+            <button (click)="visualizaUnidade(unidade)" class="btn btn-default" type="button">Visualizar</button>
           </td>
         </tr>
       </tbody>

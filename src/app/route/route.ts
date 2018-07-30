@@ -14,8 +14,10 @@ export const appRoute : Routes = [
     {path: 'home', component: HomeComponent},
     {path: 'cadastro', component: CadastroComponent},
     {path: 'lista-espera', component: ListaComponent},
-    {path: 'editar', component: EditarComponent, canActivate: [AuthGuard]},
-    {path: 'visualizar-ficha', component: VisualizarFichaComponent, canActivate: [AuthGuard]},
+    {path: 'editar', component: EditarComponent},
+    {path: 'visualizar-ficha', component: VisualizarFichaComponent},
     {path: 'unidades', component: UnidadesComponent},
-    {path: 'visualizar-unidade', component: VisualizarUnidadeComponent, canActivate: [AuthGuard]}
+    {path: 'visualizar-unidade', component: VisualizarUnidadeComponent}
 ]
+
+// canActivate: [AuthGuard]

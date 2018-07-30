@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { Ficha } from '../models/ficha';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { GeralService } from '../services/geral/geral.service';
+import { DatabaseService } from '../services/database/database.service';
+import { ENDPOINTS } from '../endpoints';
 
 @Injectable()
 export class CadastroService {
@@ -13,7 +14,7 @@ export class CadastroService {
   unidade: FormGroup;
   ficha: Ficha = new Ficha();
 
-  constructor(private router: Router, private service: GeralService) { }
+  constructor(private router: Router, private database: DatabaseService) { }
 
   recebeFicha(){
     this.ficha = this.quadroClinico.value.formQuadroClinico;
@@ -22,7 +23,8 @@ export class CadastroService {
     this.ficha.localidade = this.unidade.value.formNomeUnidadeAtend;
     this.ficha.localidade.endereco = this.unidade.value.formUnidadeAtend;
 
-    this.service.addFicha(this.ficha)
+    this.database.post(ENDPOINTS.fichas, this.ficha);
+    this.database.post(ENDPOINTS.unidades, this.ficha.localidade);
     this.ficha = new Ficha();
     this.paciente.reset();
     this.endereco.reset();

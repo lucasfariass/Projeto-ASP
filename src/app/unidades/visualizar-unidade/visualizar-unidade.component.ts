@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Ficha } from '../../models/ficha';
+import { Localidade } from '../../models/localidade';
+import { DatabaseService } from '../../services/database/database.service';
 import { GeralService } from '../../services/geral/geral.service';
 
 
@@ -11,21 +13,14 @@ import { GeralService } from '../../services/geral/geral.service';
 })
 export class VisualizarUnidadeComponent implements OnInit {
 
-  nomeUnidade: string;
-  fichas: Array<Ficha> = new Array<Ficha>();
-  unidadeFichas: Array<Ficha> = new Array<Ficha>();
+  unidade: Localidade = new Localidade();
 
-  constructor(private router: Router, private service: GeralService) { 
-    this.nomeUnidade = this.service.unidadeNome;
-    this.fichas = this.service.fichas;
+  constructor(private router: Router, private database: DatabaseService, private service: GeralService) {
+    this.unidade = this.service.unidade; 
   }
 
   ngOnInit() {
-    for (let i = 0; i < this.service.fichas.length; i++) {
-      if(this.fichas[i].localidade.nome === this.nomeUnidade){
-        this.unidadeFichas.push(this.fichas[i]);
-      }     
-    }
+    this.database.getPacientesByUnidade(this.unidade)
   }
 
   fechaUnidade(){

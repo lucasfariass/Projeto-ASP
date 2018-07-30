@@ -1,7 +1,7 @@
 <div id="main" class="container-fluid">
-  <h3 class="page-header">{{nomeUnidade}}</h3>
+  <h3 class="page-header">{{unidade.nome}}</h3>
   
-  <div *ngFor="let ficha of unidadeFichas" class="row">
+  <div *ngFor="let ficha of database.fichas" class="row">
     <div class="col-md-6">
       <p><strong>Nome:</strong></p>
       <p>{{ficha.paciente.nome}}</p>

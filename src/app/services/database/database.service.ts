@@ -1,35 +1,58 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Ficha } from '../../models/ficha';
+import { ENDPOINTS } from '../../endpoints';
 
 @Injectable()
 export class DatabaseService {
 
-  fichasRef: AngularFireList<any>;
-  fichas: Observable<any[]>;
+  fichas: Array<any>;
 
-  constructor(private fb: AngularFireDatabase) {
-    this.fichasRef = this.fb.list('fichas');
-    this.fichas = this.fichasRef.snapshotChanges().pipe(
-      map(changes => 
-        changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
-      )
-    );
+  constructor(private firebase: AngularFireDatabase) {
   }
 
-  getAll() {
-    return this.fichas;
+  getAll(endpoint) {
+    return this.firebase.list(endpoint).snapshotChanges()
+      .map(element => {
+        return element.map(objeto => ( { key: objeto.payload.key, ...objeto.payload.val() }))
+      })
   }
 
-  get(key: string) {
-    return this.fb.object('fichas' + key).snapshotChanges()
+  get(endpoint, key: string) {
+    return this.firebase.object(endpoint + key).snapshotChanges()
       .map(ficha => {
         return { key: ficha.key, ...ficha.payload.val() };
       });
   }
 
+  getPacientesByUnidade(unidade){
+    this.fichas = new Array<any>();
+    this.firebase.list(ENDPOINTS.fichas).query.orderByChild('/localidade/nome').equalTo(unidade.nome)
+      .once('value', snapshot => {
+        snapshot.forEach(childSnapshot => { 
+          let ficha : Ficha;
+          ficha = childSnapshot.val();
+          this.fichas.push(ficha);
+          return false;
+        });
+    });
+  }
+
   post(endpoint, objeto){
-    return this.fb.list(endpoint).push(objeto)
+    return this.firebase.list(endpoint).push(objeto)
+  }
+
+  deleteFicha(ficha) {
+    return this.firebase.list('fichas').remove(ficha.key);
+  }
+
+  put(endpoint, objeto) {
+    return new Promise((resolve, reject) => {
+      this.firebase.list(endpoint).set(objeto.key, objeto)
+        .then(() => resolve())
+        .catch((err) => reject(err))
+    })
   }
 }

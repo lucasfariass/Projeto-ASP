@@ -13,14 +13,14 @@
         </tr>
       </thead>
       <tbody> 
-        <tr *ngFor="let ficha of fichas | async" class="row">
+        <tr *ngFor="let ficha of fichasArray" class="row">
           <td>{{ficha.posicao}}</td>
           <td class="col-md-4">{{ficha.paciente.nome}}</td>
           <td class="col-md-4">{{ficha.localidade.nome}}</td>
           <td class="col-md-4">
-            <button (click)="editaFicha(ficha.posicao)" class="btn btn-default" type="button">Editar</button>
-            <button (click)="visualizaFicha(ficha.posicao)" class="btn btn-default" type="button">Visualizar</button>
-            <button (click)="recebePosicao(ficha.posicao)" class="btn btn-default" type="button" data-toggle="modal" data-target="#delete-modal">Deletar</button>
+            <button (click)="editaFicha(ficha)" class="btn btn-default" type="button">Editar</button>
+            <button (click)="visualizaFicha(ficha)" class="btn btn-default" type="button">Visualizar</button>
+            <button (click)="recebeFicha(ficha)" class="btn btn-default" type="button" data-toggle="modal" data-target="#delete-modal">Deletar</button>
             
             <div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
               <div class="modal-dialog" role="document">
@@ -33,7 +33,7 @@
                     Deseja realmente excluir este item?
                   </div>
                   <div class="modal-footer">
-                    <button (click)="removeFicha(posicao)" type="button" class="btn btn-primary" data-dismiss="modal">Sim</button>
+                    <button (click)="removeFicha(fichaAux)" type="button" class="btn btn-primary" data-dismiss="modal">Sim</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
                   </div>
                 </div>

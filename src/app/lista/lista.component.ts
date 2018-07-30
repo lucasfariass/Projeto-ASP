@@ -4,6 +4,7 @@ import { GeralService } from '../services/geral/geral.service';
 import { Router } from '@angular/router';
 import { DatabaseService } from '../services/database/database.service';
 import { Observable } from 'rxjs';
+import { ENDPOINTS } from '../endpoints';
 
 @Component({
   selector: 'app-lista',
@@ -12,33 +13,45 @@ import { Observable } from 'rxjs';
 })
 export class ListaComponent implements OnInit {
 
-  listaEspera: Array<Ficha> = new Array<Ficha>();
-  posicao: number;
-  fichas: Observable<any[]>;
+  fichaAux: Ficha;
+  fichasArray: Array<any> = new Array<any>();
+  fichas: Observable<Ficha[]>;
 
-  constructor(private router: Router, private service : GeralService, private fireDataBase: DatabaseService) {
-      this.fichas = this.fireDataBase.fichas;
-      console.log(this.fichas)
+  constructor(private router: Router, private service : GeralService, private database: DatabaseService) {
   }
 
   ngOnInit() {
+    this.fichas = this.database.getAll(ENDPOINTS.fichas);
+    this.convertToArray();
   }
 
-  recebePosicao(index){
-    this.posicao = index;
+  convertToArray(){
+    this.fichasArray = new Array<any>();
+    return this.fichas.forEach(value => {
+      value.map(objeto => { 
+        this.fichasArray.push(objeto)
+      })
+    });
   }
 
-  removeFicha(indexRemover){
-    this.service.removeFicha(indexRemover);
+  recebeFicha(ficha){
+    this.fichaAux = ficha;
   }
 
-  editaFicha(indexEditar){
-    this.service.getFicha(indexEditar);
+  removeFicha(ficha){
+    let index = this.fichasArray.indexOf(ficha);
+    this.fichasArray.splice(index, 1);
+    this.database.deleteFicha(ficha);
+    this.fichasArray = new Array<any>();
+  }
+
+  editaFicha(ficha){
+    this.service.setFicha(ficha);
     this.router.navigate(['/editar']);
   }
 
-  visualizaFicha(indexVisualizar){
-    this.service.getFicha(indexVisualizar);
+  visualizaFicha(ficha){
+    this.service.setFicha(ficha);
     this.router.navigate(['/visualizar-ficha']);
   }
 

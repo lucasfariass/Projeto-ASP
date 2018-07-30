@@ -2,6 +2,7 @@ import { Paciente } from "./paciente";
 import { Localidade } from "./localidade";
 
 export class Ficha {
+    key: string;
     posicao: number;
     dataAtend: Date;
     sintomas: string;
