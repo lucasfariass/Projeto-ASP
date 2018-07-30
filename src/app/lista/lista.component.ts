@@ -23,6 +23,7 @@ export class ListaComponent implements OnInit {
   ngOnInit() {
     this.fichas = this.database.getAll(ENDPOINTS.fichas);
     this.convertToArray();
+    this.service.setFichas(this.fichasArray);
   }
 
   convertToArray(){

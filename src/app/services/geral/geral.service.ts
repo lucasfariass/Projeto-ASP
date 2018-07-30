@@ -9,6 +9,7 @@ export class GeralService {
 
   unidade : Localidade = new Localidade();
   ficha: Ficha = new Ficha();
+  fichasArray: Array<any> = new Array<any>();
 
   constructor(private database : DatabaseService) {
   }
@@ -19,6 +20,10 @@ export class GeralService {
 
   setUnidade(unidade){
     this.unidade = unidade;  
+  }
+
+  setFichas(fichas){
+    this.fichasArray = fichas;
   }
 
   // addUnidade(){ // SEM REPETIÇÕES

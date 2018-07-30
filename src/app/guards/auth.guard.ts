@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
-import { ListaComponent } from '../lista/lista.component';
+import { GeralService } from '../services/geral/geral.service';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
 
-  constructor(private router: Router, private lista : ListaComponent) { }
+  constructor(private router: Router, private service : GeralService) { }
 
 
   canActivate(
@@ -14,7 +14,7 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot
   ) : Observable<boolean> | boolean{
 
-    if (this.lista.fichasArray.length > 0){
+    if (this.service.fichasArray.length > 0){
       return true;
     }
 
